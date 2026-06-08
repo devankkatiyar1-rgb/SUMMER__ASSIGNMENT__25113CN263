@@ -1,28 +1,32 @@
-// Write a program to Write function for fibonacci
-
 #include <iostream>
 using namespace std;
 
-int fibonacci(int n){
-if(n == 0 ){
-return 0;
+// Function to check prime
+bool isPrime(int n) {
+    if (n <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i <= n / 2; i++) {
+        if (n % i == 0) {
+            return false; // Not prime
+        }
+    }
+
+    return true; // Prime
 }
-else if(n == 1 || n == 2){
-return 1;
-}
-else {
-return fibonacci(n-1) + fibonacci(n-2);
-}
-}
+
 int main() {
+    int num;
 
-int n;
-cin >> n;
+    cout << "Enter a number: ";
+    cin >> num;
 
-for(int i = 0;i<n;i++){
-cout << fibonacci(i);
-}
+    if (isPrime(num)) {
+        cout << num << " is a Prime Number";
+    } else {
+        cout << num << " is Not a Prime Number";
+    }
 
-
-return 0;
+    return 0;
 }
